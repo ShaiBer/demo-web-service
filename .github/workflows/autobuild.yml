@@ -25,9 +25,10 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKER_USERNAME }}/demo-web-service:${{ github.sha }}
-      - name: Deploy to acme.com/v1/privateservices/demo/default/shaib-private-service
+      - name: Deploy to
+          acme.com/v1/privateservices/staging/default/shaib-private-service
         run: "curl -X PATCH -H \"content-type: application/json\"
           https://staging-api.kblocks.io/api/resources/acme.com/v1/privateservi\
-          ces/demo/default/shaib-private-service -d
+          ces/staging/default/shaib-private-service -d
           '{\"source\":{\"fromImage\":{\"image\":\"${{ secrets.DOCKER_USERNAME
           }}/demo-web-service:${{ github.sha }}\"}}}'"
