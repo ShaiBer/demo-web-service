@@ -25,8 +25,9 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           tags: ${{ secrets.DOCKER_USERNAME }}/demo-web-service:${{ github.sha }}
-      - name: Deploy to acme.com/v1/webservices/demo/default/shaib-web-service-4
+      - name: Deploy to acme.com/v1/privateservices/demo/default/shaib-private-service
         run: "curl -X PATCH -H \"content-type: application/json\"
-          https://kblocks.io/api/resources/acme.com/v1/webservices/demo/default\
-          /shaib-web-service-4 -d '{\"source\":{\"fromImage\":{\"image\":\"${{
-          secrets.DOCKER_USERNAME }}/demo-web-service:${{ github.sha }}\"}}}'"
+          https://kblocks.io/api/resources/acme.com/v1/privateservices/demo/def\
+          ault/shaib-private-service -d
+          '{\"source\":{\"fromImage\":{\"image\":\"${{ secrets.DOCKER_USERNAME
+          }}/demo-web-service:${{ github.sha }}\"}}}'"
