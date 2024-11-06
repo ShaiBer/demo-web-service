@@ -28,7 +28,7 @@ jobs:
       - name: Deploy to
           acme.com/v1/privateservices/staging.kblocks.io/default/shaib-private-service
         run: "curl -X PATCH -H \"content-type: application/json\"
-          https://staging-api.kblocks.io/api/resources/acme.com/v1/privateservi\
-          ces/staging.kblocks.io/default/shaib-private-service -d
+          https://staging.kblocks.io/api/resources/acme.com/v1/privateservices/\
+          staging.kblocks.io/default/shaib-private-service -d
           '{\"source\":{\"fromImage\":{\"image\":\"${{ secrets.DOCKER_USERNAME
           }}/demo-web-service:${{ github.sha }}\"}}}'"
