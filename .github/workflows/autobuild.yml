@@ -6,9 +6,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      SOME_KEY_2: some value 2
-      Some_KEY: some value
+    env: '{"SOME_KEY_2":"some value 2","Some_KEY":"some value"}'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
